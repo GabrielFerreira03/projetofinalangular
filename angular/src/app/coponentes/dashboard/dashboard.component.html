@@ -1,0 +1,22 @@
+<h1>Coisas da FORD</h1>
+
+<select name="" id="vehicle-select" (change)="onVehicleSelect($event)">
+    <option *ngFor="let v of vehicles" [value]="v.id">
+        {{ v.vehicle }}
+    </option>
+</select>
+
+<section>
+    <div>{{ selectedVehicle?.volumetotal||0}}</div>
+    <div>{{ selectedVehicle?.connected||0}}</div>
+    <div>{{selectedVehicle?.softwareUpdates||0}}</div>
+    <div>{{selectedVehicle?.softwareUpdates||0}}</div>
+    <div><img *ngIf="selectedVehicle" [src]="selectedVehicle.img" alt=""></div>
+</section>
+
+<input type="text" #vinInput>
+<button (click)="searchByVin(vinInput.value)">Enviar</button>
+ <p>{{foundVehicleData?.odometro}}</p>
+ <p>{{foundVehicleData?.nivelCombustivel}}</p>
+ <p>{{foundVehicleData?.lat}}</p>
+ <p>{{foundVehicleData?.long}}</p>
